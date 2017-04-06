@@ -1,0 +1,4 @@
+name = vactory
+description = hooks for vactory's projects
+core = 7.x
+package = Vactory
