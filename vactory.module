@@ -1,10 +1,9 @@
 <?php
-
 /**
- * Implements hook_html_head_alter().
+ * @file
+ * Code for starter commun modules.
  */
-function vactory_html_head_alter(&$head_elements) {
-  if (!drupal_is_front_page())
-    unset($head_elements["sumome_script_tag"]);
 
-}
+module_load_include('inc', 'vactory', 'includes/core/html');
+module_load_include('inc', 'vactory', 'includes/core/menus');
+module_load_include('inc', 'vactory', 'includes/modules/social_media_links');
