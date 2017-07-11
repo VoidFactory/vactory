@@ -4,6 +4,8 @@
  * Code for starter commun modules.
  */
 
+module_load_include('inc', 'vactory', 'includes/core/helpers');
 module_load_include('inc', 'vactory', 'includes/core/html');
+module_load_include('inc', 'vactory', 'includes/core/token');
 module_load_include('inc', 'vactory', 'includes/core/menus');
 module_load_include('inc', 'vactory', 'includes/modules/social_media_links');

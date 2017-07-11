@@ -55,6 +55,19 @@ function _vactory_menu_link(array $variables) {
     $element['#localized_options']['html'] = TRUE;
   }
 
-  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  // Render Injected Block.
+  $output = '<li' . drupal_attributes($element['#attributes']) . '>';
+
+  if (isset($element['#original_link']['link_path']) && isset($element['#original_link']['link_path']) && drupal_match_path($element['#original_link']['link_path'], "<block>\n<block>/*") && isset($element['#original_link']['block_rendered'])) {
+    $output .= $element['#original_link']['block_rendered'];
+  }
+  else {
+    $output .= l($element['#title'], $element['#href'], $element['#localized_options']) . $sub_menu;
+  }
+
+  $output .= "</li>\n";
+
+  return $output;
+//  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+//  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
